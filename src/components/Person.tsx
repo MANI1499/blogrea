@@ -17,7 +17,7 @@ export enum Country  {
 
 export const Person = (props: Props) =>{
 
-    const [ name, setname] = useState<string>('')
+   // const [ name, setname] = useState<string>('')
 
     return (
         <div>
