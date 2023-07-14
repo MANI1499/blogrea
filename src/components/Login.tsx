@@ -1,13 +1,20 @@
 import { useState } from "react"
+import { login, logout } from '../store';
+import { useDispatch, useSelector } from 'react-redux'
 
 
 export const Login =() =>{
     const [newUsername, setUsername ] = useState('');
 
 
+    const dispatch = useDispatch();
+    const username =useSelector((state: any) => state.user.value.username)
+
+   
+
     return(
         <div>
-            <h1>Login Here</h1>
+            <h1>{ username }</h1>
             <input 
                 onChange={(e) =>{
                     setUsername(e.target.value);
@@ -15,10 +22,14 @@ export const Login =() =>{
             />
             <button
                 onClick={
-                    
+                    ()=>{
+                        dispatch(login({ username: newUsername }))
+                    }
                 }
             >Login </button>
-            <button> Logout </button>
+            <button onClick={() =>{
+                dispatch(logout())
+            }}> Logout </button>
         </div>
     )
 }

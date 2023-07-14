@@ -5,13 +5,13 @@
 
  const userSlice = createSlice({
     name: 'user',
-    initialState: { value:  { username: ""} },
+    initialState,
     reducers: {
         login: (state, action ) => {
             state.value = action.payload;
         },
          logout: (state) => {
-            state = initialState;
+            state.value = initialState.value;
          }
     }
  })
